@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap-3.3.7-dist/js/vue.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
+    </head>
+<style>
+div.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    /* width: 80px; */
+    height:100px
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: auto;
+    height: 100%;
+}
+
+button{
+    margin:5px;
+}
+#main{
+    background: url('./img/repeated-square.png'); 
+    background-repeat: "repeat",  
+}
+</style>    
+<body>
+    <div id="app">
+        <div id="main" style="width:800px;margin: 0 auto;">
+            <div class="page-header">
+                <h1>酒分类测试 <small>先点击图片，再选择答案</small></h1>
+            </div> 
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div v-for="item in winesPic" class="img" :id="item" v-on:click="picClick(item)">
+                        <img :src='"./龙舌兰/"+item+".jpg"' :alt="item" height="100">
+                        <!-- <div class="desc">这里添加图片文本描述</div> -->
+                    </div>
+                </div>
+            </div>
+            <div style="height: 80px;">
+                <span id="x" style="font-size: 80px;color: brown;visibility: hidden;" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <span id="T" style="font-size: 80px;color: green;visibility: hidden;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </div>
+            <div>
+                <div class="btn-group" role="group">
+                    <button v-for="item in winesBtn" :id='item+"btn"' type="button" class="btn btn-default" v-on:click="optClick(item)">{{item}}</button>
+                </div>
+            </div>            
+            <div class="row" style="text-align: center;padding-top: 30px;">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary" v-on:click="reDo">再来一次</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script>
+function aurl(imgName){
+    return "./龙舌兰/"+ imgName +".jpg"
+}
+
+// jq
+$(function(){
+    new Vue({
+        el:"#app",
+        data: function(){
+            return {
+                picChoice:"",
+                answerChoice:"",
+                counter:0,
+                winesBtn:["豪帅金","奥美加金","奥美加银","懒虫银","阿卡威塔银","懒虫金","豪帅银","阿卡威塔金","雷博士"],
+                winesPic:["懒虫银","豪帅金","豪帅银","阿卡威塔金","阿卡威塔银","懒虫金","雷博士","奥美加金","奥美加银"]
+            }
+        },
+        methods:{
+            picClick(item){
+                this.picChoice = item
+                // console.log(item)
+                // $("#"+item).fadeOut("slow")
+            },
+            optClick(item){
+                // console.log(item)
+                // 未选择照片
+                if(this.picChoice==""){
+                    return
+                }else{
+                    if(this.picChoice==item){
+                        $("#T").css("visibility","visible")
+                        $("#T").fadeIn(600)
+                        $("#T").fadeOut(600)
+                        // 消失
+                        $("#"+item+"btn").fadeOut("slow")
+                        $("#"+item).fadeOut("slow")
+                        // 计数
+                        this.counter+=1
+                        if(this.counter==this.winesBtn.length){
+                            alert("恭喜通关！")
+                        }
+                    }else{
+                        $("#x").css("visibility","visible")
+                        $("#x").fadeIn(600)
+                        $("#x").fadeOut(600)
+                    }
+                }
+            },
+            reDo(){
+                window.location.reload()
+            }
+        }
+    })
+});
+</script>    
+    
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>
