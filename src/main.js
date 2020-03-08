@@ -1,7 +1,5 @@
-// import { aurl, hy } from "./url.js";
-// const tequila = ["懒虫银","豪帅金","豪帅银","阿卡威塔金","阿卡威塔银","懒虫金","雷博士","奥美加金","奥美加银"];
-// const whisky = ["加拿大俱乐部","占边(美国)","四玫瑰(美国)","威特基(美国)","威雀(苏格兰)","尊美醇(爱尔兰)","布什米尔(爱尔兰)","帝王白方(苏格兰)","杰克丹尼(美国)","格兰特(苏格兰)","格兰菲迪(苏格兰)","欧肯特轩(苏格兰)","添宝15年(苏格兰)","百龄坛12年(苏格兰)","百龄坛17年(苏格兰)","百龄坛特纯(苏格兰)","皇冠(加拿大)","皇家礼炮(苏格兰)","红方(苏格兰)","芝华士12年(苏格兰)","芝华士18年(苏格兰)","顺风(苏格兰)","马谛氏尊者(苏格兰)","麦卡伦(苏格兰)","黑方(苏格兰)"]
-// const history = "whisky_history"
+// 需要外部变量三个：wineList、history、dirName
+
 // 洗牌算法
 if (!Array.prototype.derangedArray) {
   Array.prototype.derangedArray = function() {
@@ -11,9 +9,7 @@ if (!Array.prototype.derangedArray) {
 }
 wines = [...wineList]
 let random = [...wines].derangedArray() 
-// console.log(wines)
-// console.log(random)
-
+// 设定缓存
 if(localStorage.getItem(history)==null){
     let tmp = []
     localStorage.setItem(history,JSON.stringify(tmp))
@@ -32,8 +28,7 @@ function putVal(val){
         tmp.push(val)
     }
     localStorage.setItem(history,JSON.stringify(tmp))
-    console.log(tmp)
-    
+    // console.log(tmp)
 }
 
 function getVal(item){

@@ -67,7 +67,7 @@
       </div>
       <!-- 选项 -->
       <div class="col-md-5" style="height: 400px;padding-left: 10px;background-color: white;border-left: solid 2px #000;overflow: auto;">
-        <h4 style="color:black;">请选择图片的所属分类</h4><hr>
+        <h4><code>请选择图片的所属分类</code></h4>
           <div class="options">
             <button v-if="wines.length > 4" type="button" v-for="item in random" :ref="item" class="btn btn-default spanBtn" v-on:click="match(item)">{{item}}</button>
           </div>
