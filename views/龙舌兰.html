@@ -8,9 +8,8 @@
     <title>酒水知识大闯关</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="./src/whisky.js"></script>
-    <script src="bootstrap-3.3.7-dist/js/vue.js"></script>
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
   </head>
   <style>
   body{
@@ -51,7 +50,7 @@
   </style>
   <body>  
   <div id="app" >
-    <img src="./img/bg.jpeg" width="1250" id="img1"/>
+    <img src="../img/bg.jpeg" width="1250" id="img1"/>
     <!-- <div style="width:800px;height:582px;margin: 0 auto;position: absolute;"> -->
     <div id="img2">
     <!-- <div>
@@ -69,13 +68,15 @@
       <div class="col-md-5" style="height: 400px;padding-left: 10px;background-color: white;border-left: solid 2px #000;overflow: auto;">
         <h4><code>请选择图片的所属分类</code></h4>
           <div class="options">
-            <button v-if="wines.length > 4" type="button" v-for="item in random" :ref="item" class="btn btn-default spanBtn" v-on:click="match(item)">{{item}}</button>
+            <template v-if="wines.length > 9">
+                <button type="button" v-for="item in random" :ref="item" class="btn btn-default spanBtn" v-on:click="match(item)">{{item}}</button>
+            </template>
+            <template v-else>
+                <div v-for="item in random">
+                    <button type="button" :ref="item" :key="item" class="btn btn-default spanBtn" v-on:click="match(item)">{{item}}</button>
+                </div>
+            </template>          
           </div>
-            <!-- <template v-else>
-              <p v-for="item in wines">
-                  <button type="button" :ref="item" :key="item" class="btn btn-default" v-on:click="match(item)">{{item}}</button>
-              </p>
-            </template> -->
       </div>
     </div>
     <!-- 操作按钮 -->
@@ -89,7 +90,7 @@
           <button type="button" class="btn btn-info" v-on:click="reDo">重新做题</button>
           <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">完成情况</button> -->
           <button class="btn btn-primary"  v-on:click="scoreCalc">完成情况</button>
-          <a class="btn btn-info" href="./index.html">返回主页</a>
+          <a class="btn btn-info" href="../index.html">返回主页</a>
         </div>
     </div>
     <div class="row" style="background-color:white;">
@@ -120,9 +121,10 @@
 
     
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="./src/main.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../src/tequila.js"></script>
+    <script src="../src/main.js"></script>
   </body>
 </html>

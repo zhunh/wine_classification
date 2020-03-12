@@ -16,7 +16,7 @@ if(localStorage.getItem(history)==null){
 }
 
 function aurl(dir,imgName){
-    return "./"+dir+"/"+ imgName +".jpg"
+    return "../"+dir+"/"+ imgName +".jpg"
 }
 
 function putVal(val){
