@@ -19,16 +19,20 @@
     transition: 0.8s;
   }
 
-div.img {
+  div.img {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
     /* width: 80px; */
-    height:100px
+    height:110px;   
+    transition: all 0.5s;
+    cursor: pointer;
 }
 
 div.img:hover {
-    border: 1px solid #777;
+    /* border: 1px solid #777; */
+    box-shadow: 0 0 2px 2px #555;
+    transform: scale(1.5);
 }
 
 div.img img {
@@ -97,7 +101,7 @@ button{
     </div>
 
     <script src="../src/match/winInfoList.js"></script>
-    <script src="../src/match/wineList03.js"></script>
+    <script src="../src/match/whisky03.js"></script>
     <script src="../src/match/match.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
 </body>

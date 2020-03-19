@@ -21,7 +21,7 @@ function aurl(dir,imgName){
 
 function putVal(val){
     let tmp = getVal(history)
-    console.log(tmp)
+    // console.log(tmp)
     if(isExist(tmp,val.tar)){
         console.log("already exist.")
     }else{
@@ -48,8 +48,8 @@ new Vue({
     return { 
       thisIndex:1,
       imgUrl:aurl(dirName,wines[0]),
-      curImg:wines[0],
-      answerd:false,
+      curImg:wines[0], //当前显示图片名称
+      answerd:false, //标记是否已答
       total:0,
       sucNum:0,
       wroNum:0,
@@ -97,7 +97,7 @@ new Vue({
     // 配对
     match(item){
         // this.clearOptStyle()
-        if(this.answerd){
+        if(this.answerd){          
             return
         }
         this.answerd = true
@@ -113,6 +113,9 @@ new Vue({
             this.tagAnswer()
             this.info = "答错了~"
         }
+        // 显示当前酒水介绍
+        $(".alert-info").text(wineInfoList[this.curImg])
+
         putVal({"tar":this.curImg,"option":curOpt.innerText})
     },
     // 清除标记样式
@@ -122,6 +125,7 @@ new Vue({
         that.wines.forEach((item,index)=>{
             that.$refs[item][0].setAttribute("class","btn btn-default spanBtn")
         })
+        $(".alert-info").text("请选择酒水")
     },
     // 标出正确答案
     tagAnswer(){
@@ -131,6 +135,8 @@ new Vue({
         let tmp = getVal(history)
         //本题已经回答过
         if(isExist(tmp,this.curImg)){
+          // 回答过，则显示当前酒水介绍
+          $(".alert-info").text(wineInfoList[this.curImg])
           let kl = tmp.find(item => {
               return item.tar === this.curImg 
           })    

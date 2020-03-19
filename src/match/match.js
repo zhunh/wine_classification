@@ -9,8 +9,6 @@ if (!Array.prototype.derangedArray) {
         return this;
     };
   }
-  var randowNUm = Math.random()
-
 // 乱序
 let urls = [...wineList].derangedArray() 
 // let urls = [...wineList]
@@ -20,7 +18,6 @@ let urls = [...wineList].derangedArray()
 $(function(){
     new Vue({
         el:"#app",
-        key:randowNUm,
         data: function(){
             return {
                 option:"", //当前选中的选项
@@ -33,15 +30,19 @@ $(function(){
         computed:{
             //当前显示酒水介绍
             wineinfo(){
-                return wineInfoList[this.option]
+                if(wineInfoList[this.option]!=undefined){
+                    return wineInfoList[this.option]
+                }
+                return "请选择酒水名"
             }
         },
         methods:{
             // 选择酒名
             optClick(item){
                 this.option = item
-                console.log(item)
-                console.log(this.wineinfo)
+                $(".alert-info").text(this.wineinfo)
+                // console.log(item)
+                // console.log(this.wineinfo)
             },
             // 选择图片
             picClick(item){
@@ -86,14 +87,7 @@ $(function(){
             "$route":"getData"
         },
         created(){
-            // this.wineinfo = ""
-            tt()
+
         }
     })
 });
-$(function(){
-
-})
-function tt(){
-    console.log(randowNUm)
-}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>威士忌匹配01</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
+    </head>
+<style>
+  #bg {
+    display: inline-block;
+    margin: 5px;
+    border-radius: 4px;
+    transition: 0.8s;
+  }
+
+div.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    /* width: 80px; */
+    height:130px;   
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+div.img:hover {
+    /* border: 1px solid #777; */
+    box-shadow: 0 0 2px 2px #555;
+    transform: scale(1.5);
+}
+
+div.img img {
+    cursor: pointer;
+    width: auto;
+    height: 100%;
+}
+
+button{
+    margin:5px;
+}
+#main{
+    background: url('../img/repeated-square.png'); 
+    background-repeat: "repeat";
+    width: 800px;
+    /* margin: 0 auto; */
+    position: absolute;
+    top: 20px;
+    left: 330px;
+}
+
+.rowE{
+    margin: 2px;
+}
+
+</style>    
+<body>
+    <div id="app">
+        <img id="bg" src="../img/bg.jpeg" width="1250"/>
+        <div id="main">
+            <!-- <h4><span class="text-info">&nbsp;&nbsp;将酒水名与图片匹配</span></h4> -->
+            <!-- 选项 -->
+            <div>
+                <button v-for="item in winesBtn" :key="item" :id='strHandle(item)+"btn"' type="button" class="btn btn-default" v-on:click="optClick(item)">{{item}}</button>
+            </div> 
+            <!-- tips -->
+            <div style="height: 80px;">
+                <span id="x" style="font-size: 80px;color: brown;visibility: hidden;" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <span id="T" style="font-size: 80px;color: green;visibility: hidden;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </div>             
+            <!-- 图片 -->
+            <div class="row rowE">
+                <div class="col-md-12">
+                    <div v-for="item in winesPic" :key="item" class="img" :id="strHandle(item)" v-on:click="picClick(item)">
+                        <img :src='"../伏特加/"+item+".jpg"' :alt="item" height="100">
+                        <!-- <div class="desc">这里添加图片文本描述</div> -->
+                    </div>
+                </div>
+            </div>  <hr>
+            <!-- 介绍 -->
+            <div class="row rowE">
+                <div class="col-md-12">
+                    <div class="alert alert-info" role="alert">
+                        {{wineinfo}}
+                    </div>
+                </div>
+            </div>
+            <!-- 按钮 -->
+            <div class="row" style="text-align: center;padding: 5px;">
+                <div class="col-md-12">
+                    <a type="button" class="btn btn-primary" href="#" v-on:click="reDo">再来一次</a>
+                    <a type="button" class="btn btn-info" href="../index.html">返回主页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/match/vodka.js"></script>
+    <script src="../src/match/match.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>

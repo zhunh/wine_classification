@@ -19,16 +19,20 @@
     transition: 0.8s;
   }
 
-div.img {
+  div.img {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
     /* width: 80px; */
-    height:100px
+    height:110px;   
+    transition: all 0.5s;
+    cursor: pointer;
 }
 
 div.img:hover {
-    border: 1px solid #777;
+    /* border: 1px solid #777; */
+    box-shadow: 0 0 2px 2px #555;
+    transform: scale(1.5);
 }
 
 div.img img {
@@ -89,7 +93,7 @@ button{
             <div class="row" style="text-align: center;padding: 5px;">
                 <div class="col-md-12">
                     <a type="button" class="btn btn-primary" href="#" v-on:click="reDo">再来一次</a>
-                    <a type="button" class="btn btn-info" href="./威士忌_匹配02.html">威士忌匹配02</a>
+                    <a type="button" class="btn btn-info" href="./威士忌_匹配02.html">下一页</a>
                     <a type="button" class="btn btn-info" href="../index.html">返回主页</a>
                 </div>
             </div>
@@ -97,7 +101,7 @@ button{
     </div>
 
     <script src="../src/match/winInfoList.js"></script>
-    <script src="../src/match/wineList01.js"></script>
+    <script src="../src/match/whisky01.js"></script>
     <script src="../src/match/match.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
 </body>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>酒水知识大闯关</title>
+
+    <!-- Bootstrap -->
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
+  </head>
+  <style>
+  body{
+    /* background: url('./img/bg.jpeg'); 
+    background-repeat: "no-repeat";
+    background-size:100% 500px; */
+  }
+  #img1{
+    /* position: relative; */
+    resize:both;
+  }
+  #img2{
+    width: 800px;
+    /* margin: 0 auto; */
+    position: absolute;
+    top: 20px;
+    left: 330px;
+  }
+  .spanBtn{
+    margin:2px;
+  }
+  img {
+    display: inline-block;
+    margin: 5px;
+    border-radius: 4px;
+    transition: 0.8s;
+  }
+
+  img:hover {
+      box-shadow: 0 0 3px 3px gray;
+  }
+
+  .options{
+    min-height:300px;
+    background: url('../img/repeated-square.png'); 
+    background-repeat: "no-repeat";  
+  }
+  </style>
+  <body>  
+  <div id="app" >
+    <img src="../img/bg.jpeg" width="1250" id="img1"/>
+    <!-- <div style="width:800px;height:582px;margin: 0 auto;position: absolute;"> -->
+    <div id="img2">
+    <!-- <div>
+        <span class="label label-info">{{thisIndex}}</span>
+    </div> -->
+    <div class="row">
+      <!-- 图片 -->
+      <div class="col-md-7" style="text-align: center;height: 350px;background-color: white;border-right: solid 2px #000;">
+        <div style="float: left;position: absolute; top:10px;">
+            <span class="label label-info">{{thisIndex}}</span>
+        </div>
+        <img v-bind:src="imgUrl" alt="loading" style="height: 338px;"> <!--388-->
+      </div>
+      <!-- 选项 -->
+      <div class="col-md-5" style="height: 350px;padding-left: 10px;background-color: white;border-left: solid 2px #000;overflow: auto;">
+        <h4><code>请选择图片的所属分类</code></h4>
+        <div class="options">
+            <template v-if="wines.length > 9">
+                <button type="button" v-for="item in random" :ref="item" class="btn btn-default spanBtn" v-on:click="match(item)">{{item}}</button>
+            </template>
+            <template v-else>
+                <div v-for="item in random">
+                    <button type="button" :ref="item" :key="item" class="btn btn-default spanBtn" v-on:click="match(item)">{{item}}</button>
+                </div>
+            </template>          
+          </div>
+      </div>
+    </div>
+    <!-- 介绍 -->
+    <div class="row" style="margin-top: 3px;background-color: white;">
+         <div class="col-md-12"> 
+          <div class="alert alert-info" role="alert" style="margin: 5px;">
+              请选择酒水
+          </div>
+        </div>
+    </div>    
+    <!-- 操作按钮 -->
+    <div class="row" style="background-color:white;">
+        <div class="col-md-7">
+          <button type="button" class="btn btn-success" v-on:click="last">上一题</button>
+          <span class="text-info">&nbsp;&nbsp;{{info}}</span>
+          <button type="button" class="btn btn-warning" v-on:click="next" style="float: right;">下一题</button>
+        </div>  
+        <div class="col-md-5">
+          <button type="button" class="btn btn-info" v-on:click="reDo">重新做题</button>
+          <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">完成情况</button> -->
+          <button class="btn btn-primary"  v-on:click="scoreCalc">完成情况</button>
+          <a class="btn btn-info" href="../index.html">返回主页</a>
+        </div>
+    </div>
+    <div class="row" style="background-color:white;">
+      <div class="col-md-12">
+          <table class="table table-bordered">
+              <caption></caption>
+              <thead>
+                <tr>
+                  <th>总数</th>
+                  <th>做对</th>
+                  <th>答错</th>
+                  <th>未答</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{total}}</td>
+                  <td>{{sucNum}}</td>
+                  <td>{{wroNum}}</td>
+                  <td>{{unDo}}</td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </div>
+  </div>
+
+    
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="../bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../src/vodka.js"></script>
+    <script src="../src/main.js"></script>
+  </body>
+</html>
