@@ -45,10 +45,10 @@ button{
 #main{
     background: url('../img/repeated-square.png'); 
     background-repeat: "repeat";
-    width: 800px;
+    width: 900px;
     /* margin: 0 auto; */
     position: absolute;
-    top: 10px;
+    top: 6px;
     left: 330px;
 }
 
@@ -75,7 +75,7 @@ button{
             <div class="row rowE">
                 <div class="col-md-12">
                     <div v-for="item in winesPic" :key="item" class="img" :id="strHandle(item)" v-on:click="picClick(item)">
-                        <img :src='"../朗姆酒/"+item+".jpg"' :alt="item" height="100">
+                        <img :src='"../白兰地/"+item+".jpg"' :alt="item" height="100">
                         <!-- <div class="desc">这里添加图片文本描述</div> -->
                     </div>
                 </div>
@@ -98,7 +98,7 @@ button{
         </div>
     </div>
 
-    <script src="../src/match/rum.js"></script>
+    <script src="../src/match/brandy.js"></script>
     <script src="../src/match/match.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
 </body>

@@ -114,7 +114,7 @@ new Vue({
             this.info = "答错了~"
         }
         // 显示当前酒水介绍
-        $(".alert-info").text(wineInfoList[this.curImg])
+        $(".alert-info").text(wineInfoList[this.curImg] || "暂无介绍")
 
         putVal({"tar":this.curImg,"option":curOpt.innerText})
     },
@@ -136,7 +136,7 @@ new Vue({
         //本题已经回答过
         if(isExist(tmp,this.curImg)){
           // 回答过，则显示当前酒水介绍
-          $(".alert-info").text(wineInfoList[this.curImg])
+          $(".alert-info").text(wineInfoList[this.curImg] || "暂无介绍")
           let kl = tmp.find(item => {
               return item.tar === this.curImg 
           })    
