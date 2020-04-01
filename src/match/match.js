@@ -33,7 +33,7 @@ $(function(){
                 if(wineInfoList[this.option]!=undefined){
                     return wineInfoList[this.option]
                 }
-                return "请选择酒水名"
+                return "暂无介绍"
             }
         },
         methods:{

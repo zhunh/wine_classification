@@ -9,14 +9,17 @@ if (!Array.prototype.derangedArray) {
 }
 wines = [...wineList]
 let random = [...wines].derangedArray() 
+// let random = [...wines]
+
 // 设定缓存
 if(localStorage.getItem(history)==null){
     let tmp = []
     localStorage.setItem(history,JSON.stringify(tmp))
 }
-
+var picType
 function aurl(dir,imgName){
-    return "../"+dir+"/"+ imgName +".jpg"
+    tmp = picType || '.jpg'
+    return "../"+dir+"/"+ imgName + tmp
 }
 
 function putVal(val){

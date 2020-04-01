@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../bootstrap-3.3.7-dist/css/example.css" rel="stylesheet" type='text/css' />
+    <link href='../bootstrap-3.3.7-dist/css/dragula.min.css' rel='stylesheet' type='text/css' />
+    <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div><h3>将左边容器的图片拖到右边容器</h3></div>
+        <div class='wrapper'>
+            <div id='left-defaults' class='container'>
+                <div v-for="p in wineList">
+                    <!-- <div class='image-thing'> -->
+                        <img :src='"../酒具和调酒/调酒顺序图片/"+ p +".png"' :data="p[0]" width="340">
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div id='right-defaults' class='container'>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function aurl(dir,imgName){
+            tmp = picType || '.jpg'
+            return "../"+dir+"/"+ imgName + tmp
+        }
+
+        wineList = ["1准备物品","2冰杯","3摇壶加冰","4示瓶","5量辅料","6量主酒","7摇壶","8出酒水","9装饰"]
+        new Vue({
+            el: '#app',
+            data:function(){
+                return{
+                    wineList: wineList
+                }
+            }
+        })
+    </script>
+    
+    <script src='../bootstrap-3.3.7-dist/js/dragula.min.js'></script>
+    <script>
+        var d = dragula([$('left-defaults'), $('right-defaults')],{
+            // direction: 'vertical',
+            copy: function (el, source) {
+                return source === $('left-defaults')
+            },
+            accepts: function (el, target) {
+                return target !== $('left-defaults')
+            }            
+        });    
+
+        d.on('dragend',function(){
+            var rc = d.containers[1]
+            imgs = rc.getElementsByTagName("img")
+            var order = ''
+            for(i=0;i<imgs.length;i++){
+                order += imgs[i].getAttribute('data')
+            }
+
+            if(order == '123456789'){
+                alert("恭喜通关！")
+            }
+            console.log(order)
+        })
+        function $ (id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>

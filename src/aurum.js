@@ -8,4 +8,4 @@ const wineInfoList = {
 }
 const wineList = ["三得利六金酒","哥顿","孟买蓝宝石","必富达","添加利","钻石"];
 const history = "aurum_history"
-const dirName = "金酒"
+const dirName = "pics/金酒"

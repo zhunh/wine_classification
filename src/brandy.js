@@ -1,6 +1,6 @@
 const wineList = ["人头马VSOP","人头马XO","人头马特级","拿破仑VSOP","路易VSOP","轩尼诗VSOP","轩尼诗XO","金花XO","马爹利VSOP","马爹利XO","马爹利蓝带"]
 const history = "brandy_history"
-const dirName = "白兰地"
+const dirName = "pics/白兰地"
 
 const wineInfoList = {
     "金花XO":"Camus卡慕又称金花干邑或甘武士;由法国CAMUS公司出品，该公司创立于1863年，是法国著名的干邑白兰地生产企业。Camus卡慕所产干邑白兰地均采用自家果园栽种的圣·迪米里翁(Saint emilion)优质葡萄作为原料加以酿制混合而成.",

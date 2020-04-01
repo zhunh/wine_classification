@@ -1,6 +1,6 @@
 const wineList = ["奥美加银","奥美加金","懒虫金","懒虫银","豪帅金快活","豪帅银快活","阿卡威塔金","阿卡威塔银","雷博士"];
 const history = "tequila_history"
-const dirName = "龙舌兰"
+const dirName = "pics/龙舌兰"
 
 const wineInfoList = {
     "阿卡威塔金":"阿卡威塔龙舌兰[AGAVITA]来自墨西哥，口感强劲，入口顺滑，具有浓厚龙舌兰植物的味道。",

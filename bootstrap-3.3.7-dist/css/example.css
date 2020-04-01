@@ -1,0 +1,64 @@
+body {
+  background-color: #942A57;
+  margin: 0 auto;
+  width: 90vw;
+  height: 50vh;
+}
+
+html, body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body, input, button {
+  font-family: Georgia, Helvetica;
+  font-size: 17px;
+  color: #ecf0f1;
+}
+
+/* dragula-specific example page styles */
+.wrapper {
+  display: table;
+}
+.container {
+  /* display: inline-block; */
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 90vw;
+  height:95px;
+  margin-bottom: 20px;
+  /* height: 50%; */
+}
+.container:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/*
+ * note that styling gu-mirror directly is a bad practice because it's too generic.
+ * you're better off giving the draggable elements a unique class and styling that directly!
+ */
+.container > div,
+.gu-mirror {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease-in-out;
+}
+.container > div {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.container .ex-moved {
+  background-color: #e74c3c;
+}
+.container.ex-over {
+  background-color: rgba(255, 255, 255, 0.3);
+}

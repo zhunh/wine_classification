@@ -76,7 +76,7 @@ button{
             <div class="row rowE">
                 <div class="col-md-12">
                     <div v-for="item in winesPic" :key="item" class="img" :id="strHandle(item)" v-on:click="picClick(item)">
-                        <img :src='"../威士忌/"+item+".jpg"' :alt="item" height="100">
+                        <img :src='"../pics/威士忌/"+item+".jpg"' :alt="item" height="100">
                         <!-- <div class="desc">这里添加图片文本描述</div> -->
                     </div>
                 </div>
@@ -93,6 +93,7 @@ button{
             <div class="row" style="text-align: center;padding: 5px;">
                 <div class="col-md-12">
                     <a type="button" class="btn btn-primary" href="#" v-on:click="reDo">再来一次</a>
+                    <a type="button" class="btn btn-info" href="./威士忌_匹配01.html">上一页</a>
                     <a type="button" class="btn btn-info" href="./威士忌_匹配03.html">下一页</a>
                     <a type="button" class="btn btn-info" href="../index.html">返回主页</a>
                 </div>

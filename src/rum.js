@@ -1,6 +1,6 @@
 const wineList = ["哈瓦那俱乐部","摩根船长白朗姆","摩根船长金朗姆","摩根船长黑朗姆","百加得白朗姆","百加得金朗姆","百加得黑朗姆","美雅士"];
 const history = "aurum_history"
-const dirName = "朗姆酒"
+const dirName = "pics/朗姆酒"
 
 const wineInfoList = {
     "百加得白朗姆":"百加得朗姆酒创立于古巴的圣地亚哥，蝙蝠标识商标被认为是带来好运和财富的象征。",
