@@ -1,0 +1,53 @@
+#bg {
+    display: inline-block;
+    margin: 5px;
+    border-radius: 4px;
+    transition: 0.8s;
+    /* width:100vw; */
+  }
+
+div.img {
+    margin: 4px;
+    border: 1px solid #ccc;
+    float: left;
+    display: table-cell;
+    /* width: 80px; */
+    height:120px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+    transform: scale(1.5);
+}
+
+div.img img {
+    width: auto;
+    height: 100%;
+}
+
+button{
+    margin:5px;
+}
+#main{
+    background: url('../../img/repeated-square.png'); 
+    background-repeat: "repeat";
+    width: 880px;
+    /* margin: 0 auto; */
+    position: absolute;
+    top: 10px;
+    left: 330px;
+    border-radius: 3px;
+}
+
+.col-md-12{
+    padding-left: 8px;
+    padding-right: 0;
+}
+
+.rowE{
+    margin: 2px;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+}

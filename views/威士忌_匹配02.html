@@ -8,56 +8,10 @@
     <title>威士忌匹配02</title>
     <!-- Bootstrap -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7-dist/css/wine_match.css" rel="stylesheet">
     <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
-    </head>
-<style>
-  #bg {
-    display: inline-block;
-    margin: 5px;
-    border-radius: 4px;
-    transition: 0.8s;
-  }
-
-  div.img {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    /* width: 80px; */
-    height:110px;   
-    transition: all 0.5s;
-    cursor: pointer;
-}
-
-div.img:hover {
-    /* border: 1px solid #777; */
-    box-shadow: 0 0 2px 2px #555;
-    transform: scale(1.5);
-}
-
-div.img img {
-    width: auto;
-    height: 100%;
-}
-
-button{
-    margin:5px;
-}
-#main{
-    background: url('../img/repeated-square.png'); 
-    background-repeat: "repeat";
-    width: 800px;
-    /* margin: 0 auto; */
-    position: absolute;
-    top: 20px;
-    left: 330px;
-}
-
-.rowE{
-    margin: 2px;
-}
-
-</style>    
+    </head>  
 <body>
     <div id="app">
         <img id="bg" src="../img/bg.jpeg" width="1250"/>
@@ -73,7 +27,7 @@ button{
                 <span id="T" style="font-size: 80px;color: green;visibility: hidden;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </div>             
             <!-- 图片 -->
-            <div class="row rowE">
+            <div class="row rowE" style="width: 80%;">
                 <div class="col-md-12">
                     <div v-for="item in winesPic" :key="item" class="img" :id="strHandle(item)" v-on:click="picClick(item)">
                         <img :src='"../pics/威士忌/"+item+".jpg"' :alt="item" height="100">

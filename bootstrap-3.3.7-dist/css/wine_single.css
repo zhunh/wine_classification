@@ -1,0 +1,30 @@
+#img1{
+  /* position: relative; */
+  resize:both;
+}
+#img2{
+  width: 800px;
+  /* margin: 0 auto; */
+  position: absolute;
+  top: 10px;
+  left: 330px;
+}
+.spanBtn{
+  margin:2px;
+}
+img {
+  display: inline-block;
+  margin: 5px;
+  border-radius: 4px;
+  transition: 0.8s;
+}
+
+img:hover {
+    box-shadow: 0 0 3px 3px gray;
+}
+
+.options{
+  min-height:300px;
+  background: url('../../img/repeated-square.png'); 
+  background-repeat: "no-repeat";  
+}

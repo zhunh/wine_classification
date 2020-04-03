@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="../bootstrap-3.3.7-dist/css/example.css" rel="stylesheet" type='text/css' />
+    <link href='../bootstrap-3.3.7-dist/css/dragula.min.css' rel='stylesheet' type='text/css' />
+
+    <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<style>
+div.img {
+    /* margin: 2px; */
+    border: 0.5px solid #ccc;
+    float: left;
+    /* display: table-cell; */
+    padding: 5px;
+    /* width: 80px; */
+    height:100px;   
+    transition: all 0.5s;
+    cursor: pointer;
+}
+div.img img {
+    cursor: pointer;
+    width: auto;
+    height: 100%;
+}
+div.img:hover {
+    /* border: 1px solid #777; */
+    box-shadow: 0 0 2px 2px #555;
+    /* transform: scale(1.5); */
+}
+</style>
+<body>
+    <div id="app">
+        <div><h3>将左边容器的图片拖到右边容器</h3></div>
+        <div class='wrapper'>           
+            <div id='left-defaults' style="width: 200px;height: 300px;overflow: auto;border: 1px solid;float: left;">
+                <div v-for="p in wineList" class="img">
+                    <!-- <div class='image-thing'> -->
+                        <img :src='"../pics/酒具和调酒/调酒顺序图片/"+ p +".png"' :data="p[0]" width="200">
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div id='right-defaults' style="height:300px;width:800px;;border:1px solid;float: left;overflow: auto;">
+
+            </div>             
+        </div>
+        <p>步骤如下：</p>
+        <p>
+        <span>1.准备物品</span>
+        <span>2.冰杯</span>
+        <span>3.摇壶加冰</span>
+        <span>4.示瓶</span>
+        <span>5.量辅料</span>        
+        </p>
+        <p>
+        <span>6.量主酒</span>
+        <span>7.摇壶</span>
+        <span>8.出酒水</span>
+        <span>9.装饰</span>
+        </p>
+        <a href="../index.html">返回主页</a>
+    </div>
+
+    <script>
+        function aurl(dir,imgName){
+            tmp = picType || '.jpg'
+            return "../"+dir+"/"+ imgName + tmp
+        }
+
+        wineList = ["1准备物品","2冰杯","3摇壶加冰","4示瓶","5量辅料","6量主酒","7摇壶","8出酒水","9装饰"]
+        // 洗牌算法
+        if (!Array.prototype.derangedArray) {
+            Array.prototype.derangedArray = function() {
+                for(var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+                return this;
+            };
+        }
+        // 乱序
+        wineList = [...wineList].derangedArray()         
+        new Vue({
+            el: '#app',
+            data:function(){
+                return{
+                    wineList: wineList
+                }
+            }
+        })
+    </script>
+    
+    <script src='../bootstrap-3.3.7-dist/js/dragula.min.js'></script>
+    <script>
+        var d = dragula([$('left-defaults'), $('right-defaults')],{
+            direction: 'horizontal',
+            // copy: function (el, source) {
+            //     return source === $('left-defaults')
+            // },
+            // accepts: function (el, target) {
+            //     return target !== $('left-defaults')
+            // }            
+        });    
+
+        d.on('dragend',function(){
+            var rc = d.containers[1]
+            imgs = rc.getElementsByTagName("img")
+            var order = ''
+            for(i=0;i<imgs.length;i++){
+                order += imgs[i].getAttribute('data')
+            }
+
+            if(order == '123456789'){
+                alert("恭喜通关！")
+            }
+            console.log(order)
+        })
+        function $ (id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>
