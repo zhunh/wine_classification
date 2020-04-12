@@ -9,7 +9,7 @@
     <link href='../bootstrap-3.3.7-dist/css/dragula.min.css' rel='stylesheet' type='text/css' />
 
     <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
-    <title>Document</title>
+    <title>调酒排序</title>
 </head>
 <style>
 div.img {
@@ -33,20 +33,41 @@ div.img:hover {
     box-shadow: 0 0 2px 2px #555;
     /* transform: scale(1.5); */
 }
+td{
+    height: 100px;
+    width: 200px;
+    border: 1px solid;
+}
 </style>
 <body>
     <div id="app">
-        <div><h3>将左边容器的图片拖到右边容器</h3></div>
+        <div><h3>将左边容器的图片拖到右边九宫格</h3></div>
         <div class='wrapper'>           
-            <div id='left-defaults' style="width: 200px;height: 300px;overflow: auto;border: 1px solid;float: left;">
+            <div id='left-defaults' style="width: 200px;height: 350px;overflow: auto;border: 1px solid;float: left;">
                 <div v-for="p in wineList" class="img">
                     <!-- <div class='image-thing'> -->
                         <img :src='"../pics/酒具和调酒/调酒顺序图片/"+ p +".png"' :data="p[0]" width="200">
                     <!-- </div> -->
                 </div>
             </div>
-            <div id='right-defaults' style="height:300px;width:800px;;border:1px solid;float: left;overflow: auto;">
-
+            <div style="height:350px;width:700px;float: left;">
+                <table style="margin: 0 auto;">
+                    <tr>
+                        <td id="tdd1"></td>
+                        <td id="tdd2"></td>
+                        <td id="tdd3"></td>
+                    </tr>
+                    <tr>
+                        <td id="tdd4"></td>
+                        <td id="tdd5"></td>
+                        <td id="tdd6"></td>
+                    </tr>
+                    <tr>
+                        <td id="tdd7"></td>
+                        <td id="tdd8"></td>
+                        <td id="tdd9"></td>
+                    </tr>                                        
+                </table>
             </div>             
         </div>
         <p>步骤如下：</p>
@@ -94,19 +115,24 @@ div.img:hover {
     
     <script src='../bootstrap-3.3.7-dist/js/dragula.min.js'></script>
     <script>
-        var d = dragula([$('left-defaults'), $('right-defaults')],{
+        var d = dragula([$('left-defaults'),$('tdd1'),$('tdd2'),$('tdd3'),$('tdd4'),$('tdd5'),$('tdd6'),$('tdd7'),$('tdd8'),$('tdd9')],{
             direction: 'horizontal',
+            revertOnSpill: true,
             // copy: function (el, source) {
             //     return source === $('left-defaults')
             // },
-            // accepts: function (el, target) {
-            //     return target !== $('left-defaults')
-            // }            
+            accepts: function (el, target) {
+                if(target===$('left-defaults')){
+                    return true
+                }
+                img = target.getElementsByTagName("img")
+                return img.length<=1
+            }            
         });    
 
-        d.on('dragend',function(){
-            var rc = d.containers[1]
-            imgs = rc.getElementsByTagName("img")
+        d.on('dragend',function(el){
+            var tb = document.getElementsByTagName("table")[0]
+            imgs = tb.getElementsByTagName("img")
             var order = ''
             for(i=0;i<imgs.length;i++){
                 order += imgs[i].getAttribute('data')
@@ -115,7 +141,6 @@ div.img:hover {
             if(order == '123456789'){
                 alert("恭喜通关！")
             }
-            console.log(order)
         })
         function $ (id) {
             return document.getElementById(id);
