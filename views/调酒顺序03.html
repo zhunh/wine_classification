@@ -4,69 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="../bootstrap-3.3.7-dist/css/example.css" rel="stylesheet" type='text/css' />
     <link href='../bootstrap-3.3.7-dist/css/dragula.min.css' rel='stylesheet' type='text/css' />
-
+    <link href='../bootstrap-3.3.7-dist/css/order.css' rel='stylesheet' type='text/css' />
     <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
     <title>调酒排序</title>
 </head>
-<style>
-div.img {
-    /* margin: 2px; */
-    border: 0.5px solid #ccc;
-    float: left;
-    /* display: table-cell; */
-    padding: 5px;
-    /* width: 80px; */
-    height:100px;   
-    transition: all 0.5s;
-    cursor: pointer;
-}
-div.img img {
-    cursor: pointer;
-    width: auto;
-    height: 100%;
-}
-div.img:hover {
-    /* border: 1px solid #777; */
-    box-shadow: 0 0 2px 2px #555;
-    /* transform: scale(1.5); */
-}
-td{
-    height: 100px;
-    width: 200px;
-    border: 1px solid;
-}
-</style>
 <body>
     <div id="app">
         <div><h3>将左边容器的图片拖到右边九宫格</h3></div>
         <div class='wrapper'>           
-            <div id='left-defaults' style="width: 200px;height: 350px;overflow: auto;border: 1px solid;float: left;">
+            <div id='left-defaults' style="width: 200px;height: 360px;overflow: auto;border: 1px solid;float: left;">
                 <div v-for="p in wineList" class="img">
-                    <!-- <div class='image-thing'> -->
-                        <img :src='"../pics/酒具和调酒/调酒顺序图片/"+ p +".png"' :data="p[0]" width="200">
-                    <!-- </div> -->
+                    <img :src='"../pics/酒具和调酒/调酒顺序图片/"+ p +".png"' :data="p[0]" width="200">
                 </div>
             </div>
             <div style="height:350px;width:700px;float: left;">
                 <table style="margin: 0 auto;">
                     <tr>
-                        <td id="tdd1"></td>
-                        <td id="tdd2"></td>
-                        <td id="tdd3"></td>
+                        <td id="tdd1" data="1"></td>
+                        <td id="tdd2" data="2"></td>
+                        <td id="tdd3" data="3"></td>
                     </tr>
                     <tr>
-                        <td id="tdd4"></td>
-                        <td id="tdd5"></td>
-                        <td id="tdd6"></td>
+                        <td id="tdd4" data="4"></td>
+                        <td id="tdd5" data="5"></td>
+                        <td id="tdd6" data="6"></td>
                     </tr>
                     <tr>
-                        <td id="tdd7"></td>
-                        <td id="tdd8"></td>
-                        <td id="tdd9"></td>
-                    </tr>                                        
+                        <td id="tdd7" data="7"></td>
+                        <td id="tdd8" data="8"></td>
+                        <td id="tdd9" data="9"></td>
+                    </tr>     
+                    <tr>
+                        <td colspan="3" style="height: 40px;text-align: center;" id="info"></td>
+                    </tr>                                   
                 </table>
             </div>             
         </div>
@@ -122,11 +94,20 @@ td{
             //     return source === $('left-defaults')
             // },
             accepts: function (el, target) {
+                var info = document.getElementById("info")
                 if(target===$('left-defaults')){
                     return true
                 }
-                img = target.getElementsByTagName("img")
-                return img.length<=1
+                var container_id = target.getAttribute('data')
+                var img = el.getElementsByTagName("img")
+                var img_id = img[0].getAttribute('data')
+                if(container_id==img_id){
+                    info.innerHTML = '<span style="color:green;">步骤 '+container_id+' 的图片匹配正确</span>'
+                    return true
+                }else{
+                    info.innerHTML = '<span style="color:red;">步骤 '+container_id+' 的图片匹配错误</span>'
+                    return false
+                } 
             }            
         });    
 
