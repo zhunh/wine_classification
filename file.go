@@ -16,7 +16,7 @@ type Whisky struct {
 
 func main() {
 	//pwd,_ := os.Getwd()
-	fileInfoList,err := ioutil.ReadDir(`/Users/znh/Desktop/wine_demo/pics/葡萄酒`)
+	fileInfoList,err := ioutil.ReadDir(`/Users/znh/Desktop/wine_demo/pics/中国白酒`)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>朗姆酒</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7-dist/css/wine_match.css" rel="stylesheet">
+    <script src="../bootstrap-3.3.7-dist/js/vue.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
+    </head>   
+<body>
+    <div id="app">
+        <img id="bg" src="../img/bg.jpeg" width="1250"/>
+        <div id="main">
+            <!-- <h4><span class="text-info">&nbsp;&nbsp;将酒水名与图片匹配</span></h4> -->
+            <!-- 选项 -->
+            <div>
+                <button v-for="item in winesBtn" :key="item" :id='strHandle(item)+"btn"' type="button" class="btn btn-default" v-on:click="optClick(item)">{{item}}</button>
+            </div> 
+            <!-- tips -->
+            <div style="height: 80px;">
+                <span id="x" style="font-size: 80px;color: brown;visibility: hidden;" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <span id="T" style="font-size: 80px;color: green;visibility: hidden;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </div>             
+            <!-- 图片 -->
+            <div class="row rowE" style="width: 80%;margin: 0 auto;">
+                <div class="col-md-12">
+                    <div v-for="item in winesPic" :key="item" class="img" :id="strHandle(item)" v-on:click="picClick(item)">
+                        <img :src='"../pics/中国白酒/"+item+".jpg"' :alt="item" height="100">
+                        <!-- <div class="desc">这里添加图片文本描述</div> -->
+                    </div>
+                </div>
+            </div>  <hr>
+            <!-- 介绍 -->
+            <div class="row rowE">
+                <div class="col-md-12">
+                    <div class="alert alert-info" role="alert">
+                        {{wineinfo}}
+                    </div>
+                </div>
+            </div>
+            <!-- 按钮 -->
+            <div class="row" style="text-align: center;padding: 5px;">
+                <div class="col-md-12">
+                    <a type="button" class="btn btn-primary" href="#" v-on:click="reDo">再来一次</a>
+                    <a type="button" class="btn btn-primary" href="./白酒_匹配01.html">上一页</a>
+                    <a type="button" class="btn btn-info" href="../index.html">返回主页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/match/liquor02.js"></script>
+    <script src="../src/match/match.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>
