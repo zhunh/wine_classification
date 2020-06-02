@@ -13,13 +13,13 @@
 <body>
     <div id="app">
         <div><h3>将左边容器的图片拖到右边九宫格</h3></div>
-        <div class='wrapper'>           
-            <div id='left-defaults' style="width: 200px;height: 360px;overflow: auto;border: 1px solid;float: left;">
+        <div class='wrapper' style="width: 1200px;">           
+            <div id='left-defaults' style="width: 300px;height: 500px;overflow: auto;border: 1px solid;float: left;">
                 <div v-for="p in wineList" class="img">
                     <img :src='"../pics/酒具和调酒/调酒顺序图片/"+ p +".png"' :data="p[0]" width="200">
                 </div>
             </div>
-            <div style="height:350px;width:700px;float: left;">
+            <div style="height:500px;width:900px;float: left;">
                 <table style="margin: 0 auto;">
                     <tr>
                         <td id="tdd1" data="1"></td>

@@ -32,7 +32,7 @@
       <div class="col-md-5" style="height: 350px;padding-left: 10px;background-color: white;border-left: solid 2px #000;overflow: auto;">
         <h4><code>请选择图片的所属分类</code></h4>
         <div class="options">
-            <template v-if="wines.length > 9">
+            <template v-if="random.length > 9">
                 <button type="button" v-for="item in random" :ref="item" class="btn btn-default spanBtn" v-on:click="match(item)">{{item}}</button>
             </template>
             <template v-else>

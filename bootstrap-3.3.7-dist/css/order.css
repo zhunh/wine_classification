@@ -5,7 +5,7 @@ div.img {
     /* display: table-cell; */
     padding: 5px;
     /* width: 80px; */
-    height:100px;   
+    height:144.5px;   
     transition: all 0.5s;
     cursor: pointer;
 }
@@ -20,52 +20,45 @@ div.img:hover {
     /* transform: scale(1.5); */
 }
 td{
-    height: 100px;
-    width: 200px;
+    height: 150px;
+    width: 280px;
     border: 1px solid;
 }
 #tdd1{
-    background: transparent;
-    background-image: url('../../img/01.png');
+    /* background: transparent; */
+    background: url('../../img/01.png') center;
     background-repeat:no-repeat;
 }
 #tdd2{
-    background: transparent;
-    background-image: url('../../img/02.png');
+    background: url('../../img/02.png') center;
+    /* background-image: url('../../img/02.png'); */
     background-repeat:no-repeat;
 }
 #tdd3{
-    background: transparent;
-    background-image: url('../../img/03.png');
+    background: url('../../img/03.png') center;
     background-repeat:no-repeat;
 }
 #tdd4{
-    background: transparent;
-    background-image: url('../../img/04.png');
+    background: url('../../img/04.png') center;
     background-repeat:no-repeat;
 }
 #tdd5{
-    background: transparent;
-    background-image: url('../../img/05.png');
+    background: url('../../img/05.png') center;
     background-repeat:no-repeat;
 }
 #tdd6{
-    background: transparent;
-    background-image: url('../../img/06.png');
+    background: url('../../img/06.png') center;
     background-repeat:no-repeat;
 }
 #tdd7{
-    background: transparent;
-    background-image: url('../../img/07.png');
+    background: url('../../img/07.png') center;
     background-repeat:no-repeat;
 }
 #tdd8{
-    background: transparent;
-    background-image: url('../../img/08.png');
+    background: url('../../img/08.png') center;
     background-repeat:no-repeat;
 }
 #tdd9{
-    background: transparent;
-    background-image: url('../../img/09.png');
+    background: url('../../img/09.png') center;
     background-repeat:no-repeat;
 }
